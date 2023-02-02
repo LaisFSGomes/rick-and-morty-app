@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <h1>Rick and Morty App</h1>
+  <form action="">
+    <input
+      type="text"
+      placeholder="Search Character"
+      name="search"
+      [(ngModel)]="searchCharacterName"
+    />
+    <button (click)="onClickSearch()" >Search</button>
+  </form>
+</nav>
+<section
+  class="characterListWrapper"
+  *ngIf="currentChacactersPage.length > 0; else theresnoitens"
+>
+  <div class="container" *ngFor="let item of currentChacactersPage">
+    <app-character-card [character]="item"></app-character-card>
+  </div>
+</section>
+
+<ng-template #theresnoitens>
+  <div class="theresnoitens">
+    <p>
+      <span class="ff-inter">There's no character with this name</span>
+    </p>
+  </div>
+</ng-template>
