@@ -18,11 +18,26 @@
     <app-character-card [character]="item"></app-character-card>
   </div>
 </section>
+<section class="paginationWrapper">
+  <button (click)="onClickFirstPage()" [disabled]="currentPage === 1">
+    First
+  </button>
+  <button (click)="onClickPreviousPage()" [disabled]="currentPage === 1">
+    Previous
+  </button>
+  <span>{{ currentPage }} of {{ totalPages }}</span>
+  <button (click)="onClickNextPage()" [disabled]="currentPage === totalPages">
+    Next
+  </button>
+  <button (click)="onClickLastPage()" [disabled]="currentPage === totalPages">
+    Last
+  </button>
+</section>
 
 <ng-template #theresnoitens>
   <div class="theresnoitens">
     <p>
-      <span class="ff-inter">There's no character with this name</span>
+      <span>There's no character with this name</span>
     </p>
   </div>
 </ng-template>

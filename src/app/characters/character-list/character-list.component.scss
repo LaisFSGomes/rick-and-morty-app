@@ -23,7 +23,7 @@
       border: 1px solid #ddd;
       border-radius: 5px;
       font-size: 1.5rem;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-size: 1.5rem;
     }
     button {
@@ -35,7 +35,7 @@
       color: #f8f8f8;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-size: 1.5rem;
       &:hover {
         background-color: #f8f8f8;
@@ -73,8 +73,63 @@
     }
   }
 }
-.characterListWrapper {
+.characterListWrapper
+{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-area: main;
   grid-gap: 20px;
+  padding: 1rem;
+  place-items: center;
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 315px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.paginationWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 30%;
+  justify-content: space-evenly;
+  button {
+    padding: 5px;
+    border-radius: 10%;
+    border: 1px solid #444;
+    width: 70px;
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      background-color: #444;
+      color: #f8f8f8;
+    }
+    &[disabled] {
+      background-color: #ddd;
+      color: #777;
+      cursor: not-allowed;
+    }
+  }
+  @media (max-width: 990px) {
+    padding: 2rem 20%;
+  }
+  @media (max-width: 630px) {
+    padding: 2rem 10%;
+  }
+  @media (max-width: 500px) {
+    padding: 2rem 5%;
+    justify-content: space-between;
+    button {
+      width: auto;
+    }
+  }
 }
