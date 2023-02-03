@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CharacterCardType } from '../../../_utils/templates';
+import { CharacterCardType } from 'app/_utils/templates';
 
 @Component({
   selector: 'app-character-card',
@@ -15,6 +15,6 @@ export class CharacterCardComponent {
     status: 'Alive'
   }
   maxNameLenght(name: string) {
-    return name.length > 20 ? name.slice(0, 20) + '...' : name;
+    return name.length > 15 ? name.slice(0, 15) + '...' : name;
   }
 }

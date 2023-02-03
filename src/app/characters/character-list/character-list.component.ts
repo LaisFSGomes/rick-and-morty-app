@@ -1,6 +1,10 @@
-import { CharacterType, CharacterFilterProps } from './../../_utils/templates';
-import { ApiService } from './../../services/api.service';
 import { Component } from '@angular/core';
+import { ApiService } from 'app/services/api.service';
+import {
+  CharacterType,
+  CharacterFilterProps,
+  PageCharacterProps,
+} from 'app/_utils/templates';
 
 @Component({
   selector: 'app-character-list',
@@ -9,6 +13,15 @@ import { Component } from '@angular/core';
 })
 export class CharacterListComponent {
   currentChacactersPage: CharacterType[] = [];
+  data: PageCharacterProps = {
+    info: {
+      count: 0,
+      pages: 0,
+      next: null,
+      prev: null,
+    },
+    results: [],
+  };
   totalPages: number = 0;
   currentPage: number = 0;
   typeSearch: string = 'normal';
@@ -21,6 +34,13 @@ export class CharacterListComponent {
   };
   constructor(private service: ApiService) {}
 
+  getData(data: PageCharacterProps) {
+    this.data = data;
+    this.currentChacactersPage = data.results;
+    this.totalPages = data.info.pages;
+    this.currentPage = 1;
+  }
+
   ngOnInit(): void {
     this.service.listar().subscribe((data) => {
       this.currentChacactersPage = data.results;
@@ -28,20 +48,7 @@ export class CharacterListComponent {
       this.currentPage = 1;
     });
   }
-  onTypeSearch(type: string) {
-    this.typeSearch = type;
-  }
-  onClickSearch() {
-    const searchLabel = this.joinStringSearch(this.search);
 
-    this.service.filterCharacters(searchLabel).subscribe((data) => {
-      this.currentChacactersPage = data.results;
-      this.totalPages = data.info.pages;
-      this.currentPage = 1;
-    }, (error) => {
-      this.currentChacactersPage = [];
-    });
-  }
   onClickPreviousPage() {
     this.service.listarPaginacao(this.currentPage - 1).subscribe((data) => {
       this.currentChacactersPage = data.results;

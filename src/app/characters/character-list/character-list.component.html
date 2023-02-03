@@ -1,63 +1,4 @@
-<nav class="navbar">
-  <h1>Rick and Morty App</h1>
-  <select name="typeSearch" [(ngModel)]="typeSearch" class="selectChooseMode">
-    <option value="normal">Normal Search</option>
-    <option value="advanced">Advanced Search</option>
-  </select>
-
-  <div
-    class="normalSearch"
-    *ngIf="typeSearch === 'normal'; else advancedSearch"
-  >
-    <form action="">
-      <input
-        type="text"
-        placeholder="Search Character"
-        name="search"
-        [(ngModel)]="search.name"
-      />
-      <button (click)="onClickSearch()">Search</button>
-    </form>
-  </div>
-  <ng-template #advancedSearch>
-    <div class="advancedSearch">
-      <form>
-        <input
-          type="text"
-          placeholder="Character Name"
-          name="name"
-          [(ngModel)]="search.name"
-        />
-        <select name="status" [(ngModel)]="search.status">
-          <option disabled selected value> -- select a status -- </option>
-          <option value="alive">Alive</option>
-          <option value="dead">Dead</option>
-          <option value="unknown">Unknown</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Character Species"
-          name="species"
-          [(ngModel)]="search.species"
-        />
-        <input
-          type="text"
-          placeholder="Character Type"
-          name="type"
-          [(ngModel)]="search.type"
-        />
-        <select>
-          <option disabled selected value>-- select a gender --</option>
-          <option value="female">female</option>
-          <option value="male">male</option>
-          <option value="genderless">genderless</option>
-          <option value="unknown">unknown</option>
-        </select>
-        <button (click)="onClickSearch()">Search</button>
-      </form>
-    </div>
-  </ng-template>
-</nav>
+<app-header (response)="getData($event)"  />
 
 <section
   class="characterListWrapper"
@@ -67,6 +8,7 @@
     <app-character-card [character]="item"></app-character-card>
   </div>
 </section>
+
 <section class="paginationWrapper">
   <button (click)="onClickFirstPage()" [disabled]="currentPage === 1">
     First
