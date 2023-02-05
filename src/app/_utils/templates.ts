@@ -66,7 +66,6 @@ export interface LocationFilterType {
   type: string;
   dimension: string;
 }
-
 export interface episodeType {
   id: number;
   name: string;
@@ -84,21 +83,3 @@ export interface paginationType {
   currentPage: number;
   totalPages: number;
 };
-
-
-export interface SearchType {
-  type: "character" | "location" | "episode" | "";
-  //pro tipo character
-  nameCharacter?: string;
-  statusCharacter?: "alive" | "dead" | "unknown" | "";
-  speciesCharacter?: string;
-  typeCharacter?: string;
-  genderCharacter?: "female" | "male" | "genderless" | "unknown" | "";
-  //pro tipo location
-  nameLocation?: string;
-  typeLocation?: string;
-  dimensionLocation?: string;
-  //pro tipo episode
-  nameEpisode?: string;
-  episode?: string;
-}

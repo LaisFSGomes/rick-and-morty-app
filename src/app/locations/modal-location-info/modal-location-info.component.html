@@ -1,0 +1,26 @@
+<section class="container">
+  <div class="modal">
+    <h2>{{ location.name }}</h2>
+    <div class="infos">
+      <p><strong>Dimension: </strong>{{ location.dimension }}</p>
+      <p><strong>Type: </strong>{{ location.type }}</p>
+      <p><strong>Residents: </strong>{{ location.residents.length }}</p>
+    </div>
+    <h3>Residents:</h3>
+    <div class="carrousel" id="carrousel">
+      <div class="item-carrousel" *ngFor="let item of residents">
+        <app-character-card [character]="item"></app-character-card>
+      </div>
+    </div>
+    <div class="carrousel-scroll {{ hideButtonScroll }}" >
+      <button class="scroll-button" (click)="scrollLeft()">
+        back
+      </button>
+      <button class="scroll-button" (click)="scrollRight()">
+        next
+      </button>
+    </div>
+    <button (click)="onBackButtonClick()" class="close-button"> X </button>
+  </div>
+  <div class="overlay"></div>
+</section>

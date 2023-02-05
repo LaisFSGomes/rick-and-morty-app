@@ -1,3 +1,4 @@
+import { ModalLocationInfoComponent } from './locations/modal-location-info/modal-location-info.component';
 import { LocationListComponent } from './locations/location-list/location-list.component';
 import { ModalCharacterInfoComponent } from './characters/modal-character-info/modal-character-info.component';
 import { CharacterListComponent } from 'app/characters/character-list/character-list.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'locations',
     component: LocationListComponent,
   },
+  {
+    path: 'locations/info/:id',
+    component: ModalLocationInfoComponent,
+  }
 ];
 
 @NgModule({

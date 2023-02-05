@@ -5,6 +5,7 @@ import {
   PageCharacterProps,
   CharacterType,
   pageLocationType,
+  LocationType,
 } from 'app/_utils/templates';
 @Injectable({
   providedIn: 'root',
@@ -37,5 +38,8 @@ export class ApiService {
   }
   filterLocations(filter: string): Observable<pageLocationType> {
     return this.http.get<pageLocationType>(`${this.API}location/?${filter}`);
+  }
+  getLocation(id: number): Observable<LocationType> {
+    return this.http.get<LocationType>(`${this.API}location/${id}`);
   }
 }

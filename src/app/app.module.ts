@@ -13,6 +13,7 @@ import { LocationListComponent } from './locations/location-list/location-list.c
 import { LocationCardComponent } from './locations/components/location-card/location-card.component';
 import { SearchComponent } from './characters/components/search/search.component';
 import { SearchLocationComponent } from './locations/components/search-location/search-location.component';
+import { ModalLocationInfoComponent } from './locations/modal-location-info/modal-location-info.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SearchLocationComponent } from './locations/components/search-location/
     LocationCardComponent,
     SearchComponent,
     SearchLocationComponent,
+    ModalLocationInfoComponent,
   ],
   imports: [
     BrowserModule,
