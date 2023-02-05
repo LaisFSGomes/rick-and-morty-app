@@ -5,6 +5,7 @@
   grid-gap: 20px;
   padding: 1rem;
   place-items: center;
+  background-color: #81af48;
   @media (max-width: 1000px) {
     grid-template-columns: repeat(3, 1fr);
   }

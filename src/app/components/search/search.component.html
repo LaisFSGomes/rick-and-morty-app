@@ -1,0 +1,68 @@
+<section class="search">
+  <div class="mode">
+    <select
+      name="typeSearch"
+      [(ngModel)]="typeSearch"
+      class="selectChooseMode select"
+      (change)="onClickTypeSearch()"
+    >
+      <option value="normal">Normal Search</option>
+      <option value="advanced">Advanced Search</option>
+    </select>
+  </div>
+  <div class="normal-mode" *ngIf="typeSearch === 'normal'; else advancedmode">
+    <input
+      class="input input-normal-mode"
+      type="text"
+      placeholder="Search Character"
+      name="search"
+      [(ngModel)]="search.name"
+    />
+    <button (click)="onClickSearch()" class="button">Search</button>
+  </div>
+  <ng-template #advancedmode>
+    <div class="advanced-mode">
+      <div class="inputs">
+        <input
+          class="input input-advanced-mode"
+          type="text"
+          placeholder="Character Name"
+          name="name"
+          [(ngModel)]="search.name"
+        />
+        <select
+          name="status"
+          [(ngModel)]="search.status"
+          class="select selected-advanced-mode"
+        >
+          <option disabled selected value>-- select a status --</option>
+          <option value="alive">Alive</option>
+          <option value="dead">Dead</option>
+          <option value="unknown">Unknown</option>
+        </select>
+        <input
+          class="input input-advanced-mode"
+          type="text"
+          placeholder="Character Species"
+          name="species"
+          [(ngModel)]="search.species"
+        />
+        <input
+          class="input input-advanced-mode"
+          type="text"
+          placeholder="Character Type"
+          name="type"
+          [(ngModel)]="search.type"
+        />
+        <select class="select selected-advanced-mode">
+          <option disabled selected value>-- select a gender --</option>
+          <option value="female">female</option>
+          <option value="male">male</option>
+          <option value="genderless">genderless</option>
+          <option value="unknown">unknown</option>
+        </select>
+      </div>
+      <button (click)="onClickSearch()" class="button">Search</button>
+    </div>
+  </ng-template>
+</section>

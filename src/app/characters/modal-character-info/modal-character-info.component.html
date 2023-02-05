@@ -1,0 +1,21 @@
+<section class="container ff-inter excluir-pensamentos">
+  <div class="modal">
+    <h2>{{ character.name }}</h2>
+    <div class="container">
+      <div class="column1">
+        <img src="{{ character.image }}" alt="" />
+        <p><span class="bold">Status:</span> {{ character.status }}</p>
+        <p><span class="bold">Species:</span> {{ character.species }}</p>
+        <p><span class="bold">Type:</span> {{ character.type }}</p>
+        <p><span>Gender:</span> {{ character.gender }}</p>
+      </div>
+      <div class="column2">
+        <p><span class="bold">Origin:</span> {{ character.origin.name }}</p>
+        <p><span class="bold">Location:</span> {{ character.location.name }}</p>
+        <p><span class="bold">Episodes:</span> {{ character.episode.length }}</p>
+      </div>
+    </div>
+    <button (click)="onBackButtonClick()" class="close-button"> X </button>
+  </div>
+  <div class="overlay"></div>
+</section>

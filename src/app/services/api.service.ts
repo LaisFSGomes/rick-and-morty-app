@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PageCharacterProps } from '../_utils/templates';
+import { PageCharacterProps, CharacterType } from '../_utils/templates';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +19,8 @@ export class ApiService {
   }
   filterCharacters (filter: string): Observable<PageCharacterProps> {
     return this.http.get<PageCharacterProps>(`${this.API}?${filter}`);
+  }
+  getCharacter (id: number): Observable<CharacterType> {
+    return this.http.get<CharacterType>(`${this.API}${id}`);
   }
 }

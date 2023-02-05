@@ -1,8 +1,9 @@
 .cardWrapper {
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 5px;
   width: 200px;
   height: 300px;
@@ -25,17 +26,33 @@
     grid-template-rows: repeat(2, 1fr);
     h3 {
       margin: 0px;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-family: "Poppins", sans-serif;
       grid-column: 1 / 3;
       grid-row: 1 / 2;
       place-self: center;
+      color: #02B0C4;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     }
     p {
       margin: 0px;
-      font-size: 1rem;
+      font-size:0.9rem;
       font-family: "Poppins", sans-serif;
       place-self: center;
+      font-weight: 600;
+    }
+  }
+  button {
+    width: 60%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #CECCD8;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    &:hover {
+      background-color: #02B0C4;
+      color: #fafafa;
     }
   }
   @media (max-width: 790px) {

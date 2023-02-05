@@ -1,7 +1,23 @@
+import { ModalCharacterInfoComponent } from './characters/modal-character-info/modal-character-info.component';
+import { CharacterListComponent } from 'app/characters/character-list/character-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'characters',
+    pathMatch: 'full',
+  },
+  {
+    path: 'characters',
+    component: CharacterListComponent,
+  },
+  {
+    path: 'characters/info/:id',
+    component: ModalCharacterInfoComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

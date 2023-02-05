@@ -42,3 +42,4 @@ export interface CharacterFilterProps {
   type: string;
   gender: "female" | "male" | "genderless" | "unknown" | "";
 }
+
