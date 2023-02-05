@@ -42,7 +42,7 @@ export class CharacterListComponent {
   }
 
   ngOnInit(): void {
-    this.service.listar().subscribe((data) => {
+    this.service.characterList().subscribe((data) => {
       this.currentChacactersPage = data.results;
       this.totalPages = data.info.pages;
       this.currentPage = 1;
@@ -50,25 +50,25 @@ export class CharacterListComponent {
   }
 
   onClickPreviousPage() {
-    this.service.listarPaginacao(this.currentPage - 1).subscribe((data) => {
+    this.service.characterPagination(this.currentPage - 1).subscribe((data) => {
       this.currentChacactersPage = data.results;
       this.currentPage = this.currentPage - 1;
     });
   }
   onClickNextPage() {
-    this.service.listarPaginacao(this.currentPage + 1).subscribe((data) => {
+    this.service.characterPagination(this.currentPage + 1).subscribe((data) => {
       this.currentChacactersPage = data.results;
       this.currentPage = this.currentPage + 1;
     });
   }
   onClickFirstPage() {
-    this.service.listarPaginacao(1).subscribe((data) => {
+    this.service.characterPagination(1).subscribe((data) => {
       this.currentChacactersPage = data.results;
       this.currentPage = 1;
     });
   }
   onClickLastPage() {
-    this.service.listarPaginacao(this.totalPages).subscribe((data) => {
+    this.service.characterPagination(this.totalPages).subscribe((data) => {
       this.currentChacactersPage = data.results;
       this.currentPage = this.totalPages;
     });

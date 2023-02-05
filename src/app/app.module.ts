@@ -9,7 +9,10 @@ import { CharacterListComponent } from 'app/characters/character-list/character-
 import { CharacterCardComponent } from 'app/characters/components/character-card/character-card.component';
 import { HeaderComponent } from 'app/components/header/header.component';
 import { ModalCharacterInfoComponent } from './characters/modal-character-info/modal-character-info.component';
-import { SearchComponent } from './components/search/search.component';
+import { LocationListComponent } from './locations/location-list/location-list.component';
+import { LocationCardComponent } from './locations/components/location-card/location-card.component';
+import { SearchComponent } from './characters/components/search/search.component';
+import { SearchLocationComponent } from './locations/components/search-location/search-location.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SearchComponent } from './components/search/search.component';
     CharacterCardComponent,
     HeaderComponent,
     ModalCharacterInfoComponent,
+    LocationListComponent,
+    LocationCardComponent,
     SearchComponent,
+    SearchLocationComponent,
   ],
   imports: [
     BrowserModule,

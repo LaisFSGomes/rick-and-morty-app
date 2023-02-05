@@ -1,0 +1,51 @@
+<section class="search">
+  <div class="mode">
+    <select
+      name="typeSearch"
+      [(ngModel)]="typeSearch"
+      class="select selected-mode"
+      (change)="onClickTypeSearch()"
+    >
+      <option value="normal">Normal Search</option>
+      <option value="advanced">Advanced Search</option>
+    </select>
+  </div>
+  <div class="normal-mode" *ngIf="typeSearch === 'normal'; else advancedmode">
+    <input
+      class="input input-normal-mode"
+      type="text"
+      placeholder="Search Character"
+      name="search"
+      [(ngModel)]="search.name"
+    />
+    <button (click)="onClickSearch()" class="button">Search</button>
+  </div>
+  <ng-template #advancedmode>
+    <div class="advanced-mode">
+      <div class="inputs">
+        <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Location Name"
+          name="name"
+          [(ngModel)]="search.name"
+         />
+        <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Location Type"
+          name="type"
+          [(ngModel)]="search.type"
+          />
+        <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Location Dimension"
+          name="dimension"
+          [(ngModel)]="search.dimension"
+        />
+      </div>
+      <button (click)="onClickSearch()" class="button">Search</button>
+    </div>
+  </ng-template>
+</section>

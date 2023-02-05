@@ -1,11 +1,11 @@
 import { ApiService } from 'app/services/api.service';
-import { CharacterFilterProps, PageCharacterProps } from './../../_utils/templates';
+import { CharacterFilterProps, PageCharacterProps } from 'app/_utils/templates';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
   typeSearch: string = 'normal';
@@ -53,5 +53,4 @@ export class SearchComponent {
     if (this.search.type !== '') searchLabel += `type=${this.search.type}&`;
     return searchLabel;
   };
-
 }
