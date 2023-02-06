@@ -49,7 +49,6 @@ export class ModalCharacterInfoComponent {
     });
   }
   onBackButtonClick(): void {
-    // this.router.navigate(['/characters']);
     window.history.back();
   }
 }

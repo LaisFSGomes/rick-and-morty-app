@@ -1,0 +1,106 @@
+.home-wrapper {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: calc(100vh - 100px);
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 70vw;
+    height: 400px;
+    .title {
+      color: #23381a;
+      text-align: center;
+    }
+    p {
+      color: #23381a;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
+          0 6px 20px 0 rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        width: 30%;
+        height: 100px;
+        cursor: pointer;
+        &:hover {
+          .info {
+            height: 100%;
+            p {
+              color: #d3d3d3;
+            }
+          }
+          .title {
+            height: 0px;
+            h1 {
+              color: transparent;
+            }
+          }
+        }
+        .title {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: height 2s;
+          h1 {
+            color: #000;
+            text-align: center;
+            font-size: 1rem;
+            transition: color 1s ease-out 0s;
+            transition-delay: 0.5s;
+          }
+        }
+        .info {
+          height: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #23381a;
+          border-radius: 10px;
+          transition: height 2s;
+          p {
+            color: transparent;
+            text-align: center;
+            font-size: 1rem;
+            transition: color 1s ease-out 0s;
+            transition-delay: 1s;
+            @media (max-width: 1200px) {
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    height: calc(100vh - 50px);
+    .container {
+      max-width: 80%;
+      height: 90%;
+      .cards {
+        flex-direction: column;
+
+        .card {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

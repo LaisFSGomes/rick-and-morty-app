@@ -18,6 +18,7 @@ import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.co
 import { EpisodesCardComponent } from './episodes/components/episodes-card/episodes-card.component';
 import { SearchEpisodesComponent } from './episodes/components/search-episodes/search-episodes.component';
 import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-episode-info.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-e
     EpisodesCardComponent,
     SearchEpisodesComponent,
     ModalEpisodeInfoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-episode-info.component';
 import { ModalLocationInfoComponent } from './locations/modal-location-info/modal-location-info.component';
 import { LocationListComponent } from './locations/location-list/location-list.component';
@@ -10,8 +11,8 @@ import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.co
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'characters',
     pathMatch: 'full',
+    component: HomeComponent
   },
   {
     path: 'characters',

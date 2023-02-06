@@ -1,10 +1,10 @@
 <nav class="navbar" >
   <div class="nav-computer">
-    <div class="title">
+    <div class="title" routerLink="/">
       <h1>Rick and Morty Winki</h1>
     </div>
     <div class="nav-link">
-      <a class="nav-item" routerLink="/home">Home</a>
+      <a class="nav-item" routerLink="/">Home</a>
       <a class="nav-item" routerLink="/characters">Characters</a>
       <a class="nav-item" routerLink="/episodes">Episodes</a>
       <a class="nav-item" routerLink="/locations">Locations</a>
@@ -17,7 +17,7 @@
       </button>
     </div>
     <div class="menu-collapse" *ngIf="isMenuMobileOpen">
-      <a class="nav-item" routerLink="/home" (click)="linkClick()">Home</a>
+      <a class="nav-item" routerLink="/" (click)="linkClick()">Home</a>
       <a class="nav-item" routerLink="/characters" (click)="linkClick()">Characters</a>
       <a class="nav-item" routerLink="/episodes" (click)="linkClick()">Episodes</a>
       <a class="nav-item" routerLink="/locations" (click)="linkClick()">Locations</a>
