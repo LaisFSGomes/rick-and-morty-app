@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'characters',
@@ -33,14 +33,15 @@ const routes: Routes = [
   {
     path: 'episodes',
     component: EpisodesListComponent,
-  }, {
+  },
+  {
     path: 'episodes/info/:id',
     component: ModalEpisodeInfoComponent,
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

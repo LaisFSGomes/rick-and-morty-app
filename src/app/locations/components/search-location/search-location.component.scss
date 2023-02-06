@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: var(--bgheader);
   padding-bottom: 1rem;
   .select {
     padding: 0.2rem;
@@ -11,9 +11,9 @@
     border: none;
     font-size: 1rem;
     font-family: "Poppins", sans-serif;
-    color: #1d1d1d;
+    color: var(--gray6);
     opacity: 0.8;
-    background-color: #d2d2d2;
+    background-color: var(--gray4);
     &:focus {
       outline: none;
     }
@@ -50,8 +50,8 @@
     font-size: 1rem;
     font-family: "Poppins", sans-serif;
     text-align: center;
-    color: #1d1d1d;
-    background-color: #d2d2d2;
+    color: var(--gray6);
+    background-color: var(--gray4);
     &:focus {
       outline: none;
     }
@@ -83,12 +83,12 @@
     display: grid;
     place-items: center;
     transition: all 0.5s ease-in-out;
-    background-color: #ceccd8;
-    color: #1d1d1d;
+    background-color: var(--bluegray);
+    color: var(--gray6);
     border: none;
     &:hover {
-      color: #000;
-      background-color: #a6a4ad;
+      color:  var(--black);
+      background-color: var(--gray7);
     }
     @media (max-width: 900px) {
       width: 80px;

@@ -10,26 +10,22 @@
 </section>
 
 <section class="paginationWrapper">
-  <button (click)="onClickFirstPage()" [disabled]="currentPage === 1">
+  <button (click)="onClickFirstPage()" [disabled]="pagination.currentPage === 1">
     First
   </button>
-  <button (click)="onClickPreviousPage()" [disabled]="currentPage === 1">
+  <button (click)="onClickPreviousPage()" [disabled]="pagination.currentPage === 1">
     Previous
   </button>
-  <span>{{ currentPage }} of {{ totalPages }}</span>
-  <button (click)="onClickNextPage()" [disabled]="currentPage === totalPages">
+  <span>{{ pagination.currentPage }} of {{ pagination.totalPages }}</span>
+  <button (click)="onClickNextPage()" [disabled]="pagination.currentPage === pagination.totalPages">
     Next
   </button>
-  <button (click)="onClickLastPage()" [disabled]="currentPage === totalPages">
+  <button (click)="onClickLastPage()" [disabled]="pagination.currentPage === pagination.totalPages">
     Last
   </button>
 </section>
 
 <ng-template #theresnoitens>
-  <div class="theresnoitens">
-    <p>
-      <span>There's no character with this name</span>
-    </p>
-  </div>
+  <app-there-are-no-itens></app-there-are-no-itens>
 </ng-template>
 

@@ -20,6 +20,7 @@ import { SearchEpisodesComponent } from './episodes/components/search-episodes/s
 import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-episode-info.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ThereAreNoItensComponent } from './components/there-are-no-itens/there-are-no-itens.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +40,10 @@ import { FooterComponent } from './components/footer/footer.component';
     ModalEpisodeInfoComponent,
     HomeComponent,
     FooterComponent,
+    ThereAreNoItensComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

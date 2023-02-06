@@ -29,22 +29,22 @@
           placeholder="Episode Name"
           name="name"
           [(ngModel)]="search.name"
-         />
-         <input
+        />
+        <input
           type="text"
           class="input input-advanced-mode"
           placeholder="Season"
           name="seasons"
           [(ngModel)]="search.season"
-          />
-          <input
+        />
+        <input
           type="text"
           class="input input-advanced-mode"
           placeholder="Episode"
           name="episodes"
           min="1"
           [(ngModel)]="search.episode"
-          />
+        />
       </div>
       <button (click)="onClickSearch()" class="button">Search</button>
     </div>

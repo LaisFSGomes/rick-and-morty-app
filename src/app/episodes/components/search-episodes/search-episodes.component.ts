@@ -32,7 +32,6 @@ export class SearchEpisodesComponent {
     this.service.filterEpisodes(searchLabel).subscribe({
       next: (data) => {
         this.response.emit(data);
-        console.log(data);
       },
       error: (error) => {
         this.response.emit({

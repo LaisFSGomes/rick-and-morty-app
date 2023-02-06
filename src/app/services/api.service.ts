@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {
-  PageCharacterProps,
+  PageCharacterType,
   CharacterType,
   pageLocationType,
   LocationType,
@@ -17,16 +17,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  characterList(): Observable<PageCharacterProps> {
-    return this.http.get<PageCharacterProps>(`${this.API}character/`);
+  characterList(): Observable<PageCharacterType> {
+    return this.http.get<PageCharacterType>(`${this.API}character/`);
   }
-  characterPagination(page: number): Observable<PageCharacterProps> {
-    return this.http.get<PageCharacterProps>(
+  characterPagination(page: number): Observable<PageCharacterType> {
+    return this.http.get<PageCharacterType>(
       `${this.API}character/?page=${page}`
     );
   }
-  filterCharacters(filter: string): Observable<PageCharacterProps> {
-    return this.http.get<PageCharacterProps>(`${this.API}character/?${filter}`);
+  filterCharacters(filter: string): Observable<PageCharacterType> {
+    return this.http.get<PageCharacterType>(`${this.API}character/?${filter}`);
   }
   getCharacter(id: number): Observable<CharacterType> {
     return this.http.get<CharacterType>(`${this.API}character/${id}`);

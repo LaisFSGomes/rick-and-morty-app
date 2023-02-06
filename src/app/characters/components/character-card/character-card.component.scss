@@ -1,5 +1,5 @@
 .cardWrapper {
-  background-color: #fafafa;
+  background-color: var(--bgheader);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,12 +31,12 @@
       grid-column: 1 / 3;
       grid-row: 1 / 2;
       place-self: center;
-      color: #02B0C4;
+      color: var(--lightblue);
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
     }
     p {
       margin: 0px;
-      font-size:0.9rem;
+      font-size: 0.9rem;
       font-family: "Poppins", sans-serif;
       place-self: center;
       font-weight: 600;
@@ -47,12 +47,12 @@
     height: 30px;
     border: none;
     border-radius: 5px;
-    background-color: #CECCD8;
+    background-color: var(--bluegray);
     cursor: pointer;
     transition: all 0.5s ease-in-out;
     &:hover {
-      background-color: #02B0C4;
-      color: #fafafa;
+      background-color: var(--lightblue);
+      color: var(--bgheader);
     }
   }
   @media (max-width: 790px) {

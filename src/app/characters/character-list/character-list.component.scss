@@ -1,11 +1,11 @@
-.characterListWrapper{
+.characterListWrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-area: main;
   grid-gap: 20px;
   padding: 1rem;
   place-items: center;
-  background-color: #81af48;
+  background-color:  var(--green);
   @media (max-width: 1000px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -26,7 +26,7 @@
   button {
     padding: 5px;
     border-radius: 10%;
-    border: 1px solid #444;
+    border: 1px solid var(--gray6);
     width: 70px;
     font-size: 0.8rem;
     font-family: "Poppins", sans-serif;
@@ -35,12 +35,12 @@
     place-items: center;
     transition: all 0.5s ease-in-out;
     &:hover {
-      background-color: #444;
-      color: #f8f8f8;
+      background-color: var(--gray6);
+      color: var(--gray2);
     }
     &[disabled] {
-      background-color: #ddd;
-      color: #777;
+      background-color: var(--gray2);
+      color: var(--gray3);
       cursor: not-allowed;
     }
   }

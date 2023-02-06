@@ -1,6 +1,10 @@
 import { ApiService } from 'app/services/api.service';
 import { Component } from '@angular/core';
-import { LocationType, pageLocationType, paginationType } from 'app/_utils/templates';
+import {
+  LocationType,
+  pageLocationType,
+  paginationType,
+} from 'app/_utils/templates';
 
 @Component({
   selector: 'app-location-list',
@@ -21,7 +25,7 @@ export class LocationListComponent {
   pagination: paginationType = {
     currentPage: 0,
     totalPages: 0,
-  }
+  };
 
   constructor(private service: ApiService) {}
 
@@ -30,57 +34,49 @@ export class LocationListComponent {
       next: (data) => {
         this.data = data;
       },
-      error: (err) => {
-        console.log(err);
-      },
       complete: () => {
         this.currentLocationPage = this.data.results;
         this.pagination.currentPage = 1;
         this.pagination.totalPages = this.data.info.pages;
-      }
+      },
     });
   }
 
   onClickPreviousPage() {
-    this.service.locationsPagination(this.pagination.currentPage - 1).subscribe({
-      next: (data) => {
-        this.data = data;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {
-        this.currentLocationPage = this.data.results;
-        this.pagination.currentPage = this.pagination.currentPage - 1;
-      }
-    });
+    this.service
+      .locationsPagination(this.pagination.currentPage - 1)
+      .subscribe({
+        next: (data) => {
+          this.data = data;
+        },
+        complete: () => {
+          this.currentLocationPage = this.data.results;
+          this.pagination.currentPage = this.pagination.currentPage - 1;
+        },
+      });
   }
   onClickNextPage() {
-    this.service.locationsPagination(this.pagination.currentPage + 1).subscribe({
-      next: (data) => {
-        this.data = data;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {
-        this.currentLocationPage = this.data.results;
-        this.pagination.currentPage = this.pagination.currentPage + 1;
-      }
-    });
+    this.service
+      .locationsPagination(this.pagination.currentPage + 1)
+      .subscribe({
+        next: (data) => {
+          this.data = data;
+        },
+        complete: () => {
+          this.currentLocationPage = this.data.results;
+          this.pagination.currentPage = this.pagination.currentPage + 1;
+        },
+      });
   }
   onClickFirstPage() {
     this.service.locationsPagination(1).subscribe({
       next: (data) => {
         this.data = data;
       },
-      error: (err) => {
-        console.log(err);
-      },
       complete: () => {
         this.currentLocationPage = this.data.results;
         this.pagination.currentPage = 1;
-      }
+      },
     });
   }
   onClickLastPage() {
@@ -88,13 +84,10 @@ export class LocationListComponent {
       next: (data) => {
         this.data = data;
       },
-      error: (err) => {
-        console.log(err);
-      },
       complete: () => {
         this.currentLocationPage = this.data.results;
         this.pagination.currentPage = this.pagination.totalPages;
-      }
+      },
     });
   }
   getData(data: pageLocationType) {

@@ -19,7 +19,7 @@ export class ModalLocationInfoComponent {
     created: '',
   };
   residents: CharacterType[] = [];
-  hideButtonScroll:string = "";
+  hideButtonScroll: string = '';
 
   constructor(
     private service: ApiService,
@@ -33,12 +33,9 @@ export class ModalLocationInfoComponent {
       next: (data) => {
         this.location = data;
       },
-      error: (err) => {
-        console.log(err);
-      },
       complete: () => {
         this.getAllResidents();
-      }
+      },
     });
   }
   onBackButtonClick(): void {
@@ -52,12 +49,9 @@ export class ModalLocationInfoComponent {
         next: (data) => {
           this.residents.push(data);
         },
-        error: (err) => {
-          console.log(err);
-        },
         complete: () => {
-          this.hideButtonScroll = this.residents.length > 4 ? "": "hide";
-        }
+          this.hideButtonScroll = this.residents.length > 4 ? '' : 'hide';
+        },
       });
     }
   }
@@ -74,8 +68,7 @@ export class ModalLocationInfoComponent {
     let element = document.getElementById('carrousel');
     if (element) {
       element.scrollLeft += 600;
-      console.log(element.scrollLeft, element.scrollWidth)
-      if (element.scrollLeft >= element.scrollWidth - element.scrollLeft/2) {
+      if (element.scrollLeft >= element.scrollWidth - element.scrollLeft / 2) {
         element.scrollLeft = 0;
       }
     }

@@ -1,19 +1,22 @@
 .modal {
-  background: #fff;
-  box-shadow: 7px 8px 0px 0px #02b0c4;
+  overflow-y: auto;
+  background: var(--whitelighter);
+  box-shadow: 7px 8px 0px 0px var(--lightblue);
   width: 90vw;
-  min-height: 80vh;
-  max-height: 95vh;
+  height: 80vh;
   position: fixed;
   left: 50%;
+  padding: 24px;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
+  font-size: 1.5rem;
   text-align: center;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  justify-content: space-around;
   h2 {
     font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
@@ -58,50 +61,71 @@
     cursor: pointer;
     border: none;
     background: none;
-    color: #000;
+    color:  var(--black);
     transition: all 0.5s ease-in-out;
     &:hover {
-      color: #02b0c4;
+      color: var(--lightblue);
     }
-  }
-}
-.carrousel {
-  overflow: scroll;
-  width: 85%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-.carrousel-scroll {
-  display: flex;
-  gap: 1rem;
-  button {
-    padding: 5px;
-    border-radius: 10%;
-    border: 1px solid #444;
-    width: 70px;
-    font-size: 0.8rem;
-    font-family: "Poppins", sans-serif;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      background-color: #444;
-      color: #f8f8f8;
-    }
-  }
-  &.hide {
-    display: none;
   }
 }
 
+.container-carrousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  .carrousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80vw;
+    overflow-x: scroll;
+    gap: 1rem;
+    padding: 1rem;
+    background-color:  var(--lightgray);
+    box-shadow: 0 0 10px rgba($color:  var(--black), $alpha: 0.5);
+    &::-webkit-scrollbar {
+      height: 0.3rem;
+      border: none;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background:  var(--gray2);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color:  var(--darkgray);
+    }
+    @media (max-width: 800px) {
+      // max-width: 80vw;
+    }
+  }
+  .carrousel-scroll {
+    display: flex;
+    gap: 1rem;
+    button {
+      padding: 5px;
+      border-radius: 10%;
+      border: 1px solid var(--gray6);
+      width: 70px;
+      font-size: 0.8rem;
+      font-family: "Poppins", sans-serif;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background-color: var(--gray6);
+        color: var(--gray2);
+      }
+    }
+    &.hide {
+      display: none;
+    }
+  }
+}
 .overlay {
-  background: #000;
+  background:  var(--black);
   height: 200vh;
   left: 0;
   opacity: 0.5;

@@ -1,5 +1,4 @@
-import { Observable } from 'rxjs';
-import { CharacterType } from 'app/_utils/templates';
+import { CharacterType, episodeType } from 'app/_utils/templates';
 import { ApiService } from 'app/services/api.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,6 +29,8 @@ export class ModalCharacterInfoComponent {
     url: '',
     created: '',
   } as CharacterType;
+  episodes: episodeType[] = [];
+  hideButtonScroll: string = '';
 
   constructor(
     private service: ApiService,
@@ -43,12 +44,44 @@ export class ModalCharacterInfoComponent {
       next: (data) => {
         this.character = data;
       },
-      error: (err) => {
-        console.log(err);
+      complete: () => {
+        this.getAllEpisodes();
       },
     });
   }
   onBackButtonClick(): void {
     window.history.back();
+  }
+  getAllEpisodes(): void {
+    for (let episode of this.character.episode) {
+      let getId = episode.split('/');
+      let id = getId[getId.length - 1];
+      this.service.getEpisode(Number(id)).subscribe({
+        next: (data) => {
+          this.episodes.push(data);
+        },
+        complete: () => {
+          this.hideButtonScroll = this.episodes.length > 4 ? '' : 'hide';
+        },
+      });
+    }
+  }
+  scrollLeft(): void {
+    let element = document.getElementById('carrousel');
+    if (element) {
+      element.scrollLeft -= 600;
+      if (element.scrollLeft <= 0) {
+        element.scrollLeft = element.scrollWidth;
+      }
+    }
+  }
+  scrollRight(): void {
+    let element = document.getElementById('carrousel');
+    if (element) {
+      element.scrollLeft += 600;
+      if (element.scrollLeft >= element.scrollWidth - element.scrollLeft / 2) {
+        element.scrollLeft = 0;
+      }
+    }
   }
 }

@@ -8,17 +8,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #d3d3d3;
+    background-color:  var(--lightgray);
     border-radius: 10px;
     padding: 20px;
     max-width: 70vw;
     height: 400px;
     .title {
-      color: #23381a;
+      color:  var(--darkgreen);
       text-align: center;
     }
     p {
-      color: #23381a;
+      color:  var(--darkgreen);
       text-align: center;
     }
     .cards {
@@ -41,7 +41,7 @@
           .info {
             height: 100%;
             p {
-              color: #d3d3d3;
+              color:  var(--lightgray);
             }
           }
           .title {
@@ -59,7 +59,7 @@
           justify-content: center;
           transition: height 2s;
           h1 {
-            color: #000;
+            color:  var(--black);
             text-align: center;
             font-size: 1rem;
             transition: color 1s ease-out 0s;
@@ -72,7 +72,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          background-color: #23381a;
+          background-color:  var(--darkgreen);
           border-radius: 10px;
           transition: height 2s;
           p {

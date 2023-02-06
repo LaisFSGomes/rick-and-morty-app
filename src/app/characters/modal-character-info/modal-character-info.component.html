@@ -2,20 +2,36 @@
   <div class="modal">
     <h2>{{ character.name }}</h2>
     <div class="container">
-      <div class="column1">
+      <div class="informs">
         <img src="{{ character.image }}" alt="" />
-        <p><span class="bold">Status:</span> {{ character.status }}</p>
-        <p><span class="bold">Species:</span> {{ character.species }}</p>
-        <p><span class="bold">Type:</span> {{ character.type }}</p>
-        <p><span>Gender:</span> {{ character.gender }}</p>
+        <div class="texts">
+          <p><span class="bold">Status:</span> {{ character.status }}</p>
+          <p><span class="bold">Species:</span> {{ character.species }}</p>
+          <p><span class="bold">Type:</span> {{ character.type }}</p>
+          <p><span>Gender:</span> {{ character.gender }}</p>
+          <p><span class="bold">Origin:</span> {{ character.origin.name }}</p>
+          <p>
+            <span class="bold">Location:</span> {{ character.location.name }}
+          </p>
+          <p>
+            <span class="bold">Episodes:</span> {{ character.episode.length }}
+          </p>
+        </div>
       </div>
-      <div class="column2">
-        <p><span class="bold">Origin:</span> {{ character.origin.name }}</p>
-        <p><span class="bold">Location:</span> {{ character.location.name }}</p>
-        <p><span class="bold">Episodes:</span> {{ character.episode.length }}</p>
+      <div class="container-carrousel">
+        <h3>Episodes:</h3>
+        <div class="carrousel" id="carrousel">
+          <div class="item-carrousel" *ngFor="let item of episodes">
+            <app-episodes-card [episode]="item"></app-episodes-card>
+          </div>
+        </div>
+        <div class="carrousel-scroll {{ hideButtonScroll }}">
+          <button class="scroll-button" (click)="scrollLeft()">back</button>
+          <button class="scroll-button" (click)="scrollRight()">next</button>
+        </div>
       </div>
     </div>
-    <button (click)="onBackButtonClick()" class="close-button"> X </button>
+    <button (click)="onBackButtonClick()" class="close-button">X</button>
   </div>
   <div class="overlay"></div>
 </section>

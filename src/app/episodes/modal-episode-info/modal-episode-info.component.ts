@@ -34,9 +34,6 @@ export class ModalEpisodeInfoComponent {
       next: (data) => {
         this.episode = data;
       },
-      error: (err) => {
-        console.log(err);
-      },
       complete: () => {
         this.getAllCharacters();
       },
@@ -52,9 +49,6 @@ export class ModalEpisodeInfoComponent {
       this.service.getCharacter(Number(id)).subscribe({
         next: (data) => {
           this.characters.push(data);
-        },
-        error: (err) => {
-          console.log(err);
         },
         complete: () => {
           this.hideButtonScroll = this.characters.length > 4 ? '' : 'hide';
@@ -75,7 +69,6 @@ export class ModalEpisodeInfoComponent {
     let element = document.getElementById('carrousel');
     if (element) {
       element.scrollLeft += 600;
-      console.log(element.scrollLeft, element.scrollWidth);
       if (element.scrollLeft >= element.scrollWidth - element.scrollLeft / 2) {
         element.scrollLeft = 0;
       }

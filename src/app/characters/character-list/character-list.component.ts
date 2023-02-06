@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ApiService } from 'app/services/api.service';
 import {
   CharacterType,
-  CharacterFilterProps,
-  PageCharacterProps,
+  PageCharacterType,
+  paginationType,
 } from 'app/_utils/templates';
 
 @Component({
@@ -13,7 +13,7 @@ import {
 })
 export class CharacterListComponent {
   currentChacactersPage: CharacterType[] = [];
-  data: PageCharacterProps = {
+  data: PageCharacterType = {
     info: {
       count: 0,
       pages: 0,
@@ -22,66 +22,61 @@ export class CharacterListComponent {
     },
     results: [],
   };
-  totalPages: number = 0;
-  currentPage: number = 0;
-  typeSearch: string = 'normal';
-  search: CharacterFilterProps = {
-    name: '',
-    status: '',
-    species: '',
-    type: '',
-    gender: '',
+  pagination: paginationType = {
+    currentPage: 0,
+    totalPages: 0,
   };
+
   constructor(private service: ApiService) {}
 
-  getData(data: PageCharacterProps) {
-    this.data = data;
-    this.currentChacactersPage = data.results;
-    this.totalPages = data.info.pages;
-    this.currentPage = 1;
-  }
-
   ngOnInit(): void {
-    this.service.characterList().subscribe((data) => {
-      this.currentChacactersPage = data.results;
-      this.totalPages = data.info.pages;
-      this.currentPage = 1;
-    });
+    this.service.characterList().subscribe({
+      next: (data) => {
+        this.getData(data);
+      },
+      complete: () => {
+        this.currentChacactersPage = this.data.results;
+        this.pagination.currentPage = 1;
+        this.pagination.totalPages = this.data.info.pages;
+      }
+    })
+
   }
 
   onClickPreviousPage() {
-    this.service.characterPagination(this.currentPage - 1).subscribe((data) => {
-      this.currentChacactersPage = data.results;
-      this.currentPage = this.currentPage - 1;
-    });
+    this.service
+      .characterPagination(this.pagination.currentPage - 1)
+      .subscribe((data) => {
+        this.currentChacactersPage = data.results;
+        this.pagination.currentPage = this.pagination.currentPage - 1;
+      });
   }
   onClickNextPage() {
-    this.service.characterPagination(this.currentPage + 1).subscribe((data) => {
-      this.currentChacactersPage = data.results;
-      this.currentPage = this.currentPage + 1;
-    });
+    this.service
+      .characterPagination(this.pagination.currentPage + 1)
+      .subscribe((data) => {
+        this.currentChacactersPage = data.results;
+        this.pagination.currentPage = this.pagination.currentPage + 1;
+      });
   }
   onClickFirstPage() {
     this.service.characterPagination(1).subscribe((data) => {
       this.currentChacactersPage = data.results;
-      this.currentPage = 1;
+      this.pagination.currentPage = 1;
     });
   }
   onClickLastPage() {
-    this.service.characterPagination(this.totalPages).subscribe((data) => {
-      this.currentChacactersPage = data.results;
-      this.currentPage = this.totalPages;
-    });
+    this.service
+      .characterPagination(this.pagination.totalPages)
+      .subscribe((data) => {
+        this.currentChacactersPage = data.results;
+        this.pagination.currentPage = this.pagination.totalPages;
+      });
   }
-
-  joinStringSearch = (search: CharacterFilterProps) => {
-    let searchLabel: string = '';
-    if (this.search.name !== '') searchLabel += `name=${this.search.name}&`;
-    if (this.search.status !== 'unknown')
-      searchLabel += `status=${this.search.status}&`;
-    if (this.search.species !== '')
-      searchLabel += `species=${this.search.species}&`;
-    if (this.search.type !== '') searchLabel += `type=${this.search.type}&`;
-    return searchLabel;
-  };
+  getData(data: PageCharacterType) {
+    this.data = data;
+    this.currentChacactersPage = data.results;
+    this.pagination.totalPages = data.info.pages;
+    this.pagination.currentPage = 1;
+  }
 }

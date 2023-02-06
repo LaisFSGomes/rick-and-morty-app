@@ -25,17 +25,17 @@ export interface CharacterCardType {
   species: string;
   status: string;
 }
-export interface InfoPageProps {
+export interface InfoPageType {
   count: number;
   pages: number;
   next: string | null;
   prev: string | null;
 };
-export interface PageCharacterProps {
-  info: InfoPageProps;
+export interface PageCharacterType {
+  info: InfoPageType;
   results: CharacterType[];
 }
-export interface CharacterFilterProps {
+export interface CharacterFilterType {
   name: string;
   status: "alive" | "dead" | "unknown" | "";
   species: string;
@@ -52,7 +52,7 @@ export interface LocationType {
   created: string;
 }
 export interface pageLocationType {
-  info: InfoPageProps;
+  info: InfoPageType;
   results: LocationType[];
 }
 export interface LocationCardType {
@@ -76,7 +76,7 @@ export interface episodeType {
   created: string;
 }
 export interface pageEpisodeType {
-  info: InfoPageProps;
+  info: InfoPageType;
   results: episodeType[];
 }
 

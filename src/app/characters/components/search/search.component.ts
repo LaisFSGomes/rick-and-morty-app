@@ -1,5 +1,5 @@
 import { ApiService } from 'app/services/api.service';
-import { CharacterFilterProps, PageCharacterProps } from 'app/_utils/templates';
+import { CharacterFilterType, PageCharacterType } from 'app/_utils/templates';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -9,15 +9,15 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent {
   typeSearch: string = 'normal';
-  search: CharacterFilterProps = {
+  search: CharacterFilterType = {
     name: '',
     status: '',
     species: '',
     type: '',
     gender: '',
   };
-  @Output() response: EventEmitter<PageCharacterProps> =
-    new EventEmitter<PageCharacterProps>();
+  @Output() response: EventEmitter<PageCharacterType> =
+    new EventEmitter<PageCharacterType>();
 
   constructor(private service: ApiService) {}
 

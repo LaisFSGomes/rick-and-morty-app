@@ -7,20 +7,18 @@
       <p><strong>Residents: </strong>{{ location.residents.length }}</p>
     </div>
     <h3>Residents:</h3>
-    <div class="carrousel" id="carrousel">
-      <div class="item-carrousel" *ngFor="let item of residents">
-        <app-character-card [character]="item"></app-character-card>
+    <div class="container-carrousel">
+      <div class="carrousel" id="carrousel">
+        <div class="item-carrousel" *ngFor="let item of residents">
+          <app-character-card [character]="item"></app-character-card>
+        </div>
+      </div>
+      <div class="carrousel-scroll {{ hideButtonScroll }}">
+        <button class="scroll-button" (click)="scrollLeft()">back</button>
+        <button class="scroll-button" (click)="scrollRight()">next</button>
       </div>
     </div>
-    <div class="carrousel-scroll {{ hideButtonScroll }}" >
-      <button class="scroll-button" (click)="scrollLeft()">
-        back
-      </button>
-      <button class="scroll-button" (click)="scrollRight()">
-        next
-      </button>
-    </div>
-    <button (click)="onBackButtonClick()" class="close-button"> X </button>
+    <button (click)="onBackButtonClick()" class="close-button">X</button>
   </div>
   <div class="overlay"></div>
 </section>
