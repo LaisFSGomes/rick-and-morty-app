@@ -19,6 +19,7 @@ import { EpisodesCardComponent } from './episodes/components/episodes-card/episo
 import { SearchEpisodesComponent } from './episodes/components/search-episodes/search-episodes.component';
 import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-episode-info.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HomeComponent } from './home/home.component';
     SearchEpisodesComponent,
     ModalEpisodeInfoComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
