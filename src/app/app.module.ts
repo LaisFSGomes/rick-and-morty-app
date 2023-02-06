@@ -14,6 +14,10 @@ import { LocationCardComponent } from './locations/components/location-card/loca
 import { SearchComponent } from './characters/components/search/search.component';
 import { SearchLocationComponent } from './locations/components/search-location/search-location.component';
 import { ModalLocationInfoComponent } from './locations/modal-location-info/modal-location-info.component';
+import { EpisodesListComponent } from './episodes/episodes-list/episodes-list.component';
+import { EpisodesCardComponent } from './episodes/components/episodes-card/episodes-card.component';
+import { SearchEpisodesComponent } from './episodes/components/search-episodes/search-episodes.component';
+import { ModalEpisodeInfoComponent } from './episodes/modal-episode-info/modal-episode-info.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { ModalLocationInfoComponent } from './locations/modal-location-info/moda
     SearchComponent,
     SearchLocationComponent,
     ModalLocationInfoComponent,
+    EpisodesListComponent,
+    EpisodesCardComponent,
+    SearchEpisodesComponent,
+    ModalEpisodeInfoComponent,
   ],
   imports: [
     BrowserModule,

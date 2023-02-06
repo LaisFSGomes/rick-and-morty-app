@@ -79,6 +79,19 @@ export interface pageEpisodeType {
   info: InfoPageProps;
   results: episodeType[];
 }
+
+export interface episodeCardType {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+}
+export interface EpisodeFilterType {
+  name: string;
+  season: string;
+  episode: string;
+}
+
 export interface paginationType {
   currentPage: number;
   totalPages: number;

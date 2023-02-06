@@ -1,25 +1,26 @@
-import { LocationType, CharacterType } from 'app/_utils/templates';
+import { CharacterType } from 'app/_utils/templates';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'app/services/api.service';
+import { episodeType } from './../../_utils/templates';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-modal-location-info',
-  templateUrl: './modal-location-info.component.html',
-  styleUrls: ['./modal-location-info.component.scss'],
+  selector: 'app-modal-episode-info',
+  templateUrl: './modal-episode-info.component.html',
+  styleUrls: ['./modal-episode-info.component.scss'],
 })
-export class ModalLocationInfoComponent {
-  location: LocationType = {
+export class ModalEpisodeInfoComponent {
+  episode: episodeType = {
     id: 0,
     name: '',
-    type: '',
-    dimension: '',
-    residents: [],
+    air_date: '',
+    episode: '',
+    characters: [],
     url: '',
     created: '',
   };
-  residents: CharacterType[] = [];
-  hideButtonScroll:string = "";
+  characters: CharacterType[] = [];
+  hideButtonScroll: string = '';
 
   constructor(
     private service: ApiService,
@@ -29,35 +30,35 @@ export class ModalLocationInfoComponent {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.service.getLocation(Number(id)).subscribe({
+    this.service.getEpisode(Number(id)).subscribe({
       next: (data) => {
-        this.location = data;
+        this.episode = data;
       },
       error: (err) => {
         console.log(err);
       },
       complete: () => {
-        this.getAllResidents();
-      }
+        this.getAllCharacters();
+      },
     });
   }
   onBackButtonClick(): void {
     window.history.back();
   }
-  getAllResidents(): void {
-    for (let resident of this.location.residents) {
-      let getId = resident.split('/');
+  getAllCharacters(): void {
+    for (let character of this.episode.characters) {
+      let getId = character.split('/');
       let id = getId[getId.length - 1];
       this.service.getCharacter(Number(id)).subscribe({
         next: (data) => {
-          this.residents.push(data);
+          this.characters.push(data);
         },
         error: (err) => {
           console.log(err);
         },
         complete: () => {
-          this.hideButtonScroll = this.residents.length > 4 ? "": "hide";
-        }
+          this.hideButtonScroll = this.characters.length > 4 ? '' : 'hide';
+        },
       });
     }
   }
@@ -74,8 +75,8 @@ export class ModalLocationInfoComponent {
     let element = document.getElementById('carrousel');
     if (element) {
       element.scrollLeft += 600;
-      console.log(element.scrollLeft, element.scrollWidth)
-      if (element.scrollLeft >= element.scrollWidth - element.scrollLeft/2) {
+      console.log(element.scrollLeft, element.scrollWidth);
+      if (element.scrollLeft >= element.scrollWidth - element.scrollLeft / 2) {
         element.scrollLeft = 0;
       }
     }

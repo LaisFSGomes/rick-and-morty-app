@@ -1,0 +1,52 @@
+<section class="search">
+  <div class="mode">
+    <select
+      name="typeSearch"
+      [(ngModel)]="typeSearch"
+      class="select selected-mode"
+      (change)="onClickTypeSearch()"
+    >
+      <option value="normal">Normal Search</option>
+      <option value="advanced">Advanced Search</option>
+    </select>
+  </div>
+  <div class="normal-mode" *ngIf="typeSearch === 'normal'; else advancedmode">
+    <input
+      class="input input-normal-mode"
+      type="text"
+      placeholder="Search Character"
+      name="search"
+      [(ngModel)]="search.name"
+    />
+    <button (click)="onClickSearch()" class="button">Search</button>
+  </div>
+  <ng-template #advancedmode>
+    <div class="advanced-mode">
+      <div class="inputs">
+        <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Episode Name"
+          name="name"
+          [(ngModel)]="search.name"
+         />
+         <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Season"
+          name="seasons"
+          [(ngModel)]="search.season"
+          />
+          <input
+          type="text"
+          class="input input-advanced-mode"
+          placeholder="Episode"
+          name="episodes"
+          min="1"
+          [(ngModel)]="search.episode"
+          />
+      </div>
+      <button (click)="onClickSearch()" class="button">Search</button>
+    </div>
+  </ng-template>
+</section>

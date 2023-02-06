@@ -6,6 +6,8 @@ import {
   CharacterType,
   pageLocationType,
   LocationType,
+  pageEpisodeType,
+  episodeType,
 } from 'app/_utils/templates';
 @Injectable({
   providedIn: 'root',
@@ -41,5 +43,18 @@ export class ApiService {
   }
   getLocation(id: number): Observable<LocationType> {
     return this.http.get<LocationType>(`${this.API}location/${id}`);
+  }
+
+  episodesList(): Observable<pageEpisodeType> {
+    return this.http.get<pageEpisodeType>(`${this.API}episode/`);
+  }
+  episodesPagination(page: number): Observable<pageEpisodeType> {
+    return this.http.get<pageEpisodeType>(`${this.API}episode/?page=${page}`);
+  }
+  filterEpisodes(filter: string): Observable<pageEpisodeType> {
+    return this.http.get<pageEpisodeType>(`${this.API}episode/?${filter}`);
+  }
+  getEpisode(id: number): Observable<episodeType> {
+    return this.http.get<episodeType>(`${this.API}episode/${id}`);
   }
 }

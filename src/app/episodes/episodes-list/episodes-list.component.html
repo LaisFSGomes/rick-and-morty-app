@@ -1,0 +1,33 @@
+<app-search-episodes (response)="getData($event)"></app-search-episodes>
+<section
+  class="episode-list-wrapper"
+  *ngIf="currentEpisodesPage.length > 0; else theresnoitens"
+>
+  <div class="container" *ngFor="let item of currentEpisodesPage">
+    <app-episodes-card [episode]="item"></app-episodes-card>
+  </div>
+</section>
+
+<section class="pagination-wrapper">
+  <button (click)="onClickFirstPage()" [disabled]="pagination.currentPage === 1">
+    First
+  </button>
+  <button (click)="onClickPreviousPage()" [disabled]="pagination.currentPage === 1">
+    Previous
+  </button>
+  <span>{{ pagination.currentPage }} of {{ pagination.totalPages }}</span>
+  <button (click)="onClickNextPage()" [disabled]="pagination.currentPage === pagination.totalPages">
+    Next
+  </button>
+  <button (click)="onClickLastPage()" [disabled]="pagination.currentPage === pagination.totalPages">
+    Last
+  </button>
+</section>
+
+<ng-template #theresnoitens>
+  <div class="theresnoitens">
+    <p>
+      <span>There's no character with this name</span>
+    </p>
+  </div>
+</ng-template>

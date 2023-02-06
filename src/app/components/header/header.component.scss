@@ -1,51 +1,132 @@
 .navbar {
+  width: 100%;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  z-index: 9;
   background-color: var(--bg-color-darkblue);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  h1 {
-    margin: 0;
-    color: var(--letter-color-bluelogo);
-    font-family: "Creepster", cursive;
-    font-size: 5rem;
-    letter-spacing: 0.8rem;
-    text-shadow: 0px 0px 5px var(--letter-color-greenlogo);
-  }
-  @media (max-width: 900px) {
-    padding: 5px;
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 0.5rem;
+  .nav-computer {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+      display: grid;
+      place-items: center;
+      h1 {
+        margin: 0;
+        color: var(--letter-color-bluelogo);
+        font-family: "Poppins", sans-serif;
+        font-size: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          color: var(--letter-color-greenlogo);
+        }
+        @media (max-width: 900px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width: 730px) {
+          font-size: 1.2rem;
+        }
+      }
+      @media (max-width: 730px) {
+        width: 35%;
+      }
+    }
+    .nav-link {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+      width: 50%;
+      a {
+        color: var(--letter-color-bluelogo);
+        font-family: "Poppins", sans-serif;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          color: var(--letter-color-greenlogo);
+        }
+        @media (max-width: 900px) {
+          font-size: 1rem;
+        }
+        @media (max-width: 730px) {
+          font-size: 0.8rem;
+        }
+      }
+      @media (max-width: 730px) {
+        width: 60%;
+      }
+    }
+    @media (max-width: 500px) {
+      display: none;
     }
   }
-  @media (max-width: 700px) {
-    padding: 5px;
-    h1 {
-      font-size: 3rem;
-      letter-spacing: 0.3rem;
+  .nav-mobile {
+    display: none;
+    @media (max-width: 500px) {
+      width: 90%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
     }
-  }
-  @media (max-width: 600px) {
-    padding: 5px;
-    h1 {
-      font-size: 2.5rem;
-      letter-spacing: 0.2rem;
+    .button-collapse {
+      button {
+        padding: 0.4rem;
+        border-radius: 5px;
+        width: 100px;
+        font-size: 0.8rem;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: all 0.5s ease-in-out;
+        background-color: #ceccd8;
+        color: #1d1d1d;
+        z-index: 100;
+        &:hover {
+          color: #000;
+          background-color: #a6a4ad;
+        }
+        @media (max-width: 900px) {
+          width: 80px;
+          padding: 0.3rem;
+        }
+      }
+    }
+    .menu-collapse {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 30px;
+      right: 0;
+      background-color: #e1e1e1;
+      z-index: 1;
+      width: 100px;
+      padding: 1rem;
+      border-radius: 0 0 0 1rem;
+      z-index: 100;
+      a {
+        color: var(--letter-color-bluelogo);
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+          background-image: linear-gradient(to top, #d3d3d3, #e1e1e1);
+        }
+      }
     }
   }
   @media (max-width: 500px) {
-    padding: 5px;
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 0.1rem;
-    }
-  }
-  @media (max-width: 400px) {
-    padding: 5px;
-    h1 {
-      font-size: 1.5rem;
-      letter-spacing: 0.1rem;
-    }
+    height: 50px;
   }
 }

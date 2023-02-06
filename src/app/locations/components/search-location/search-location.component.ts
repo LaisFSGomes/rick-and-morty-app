@@ -5,7 +5,7 @@ import { LocationFilterType, pageLocationType } from 'app/_utils/templates';
 @Component({
   selector: 'app-search-location',
   templateUrl: './search-location.component.html',
-  styleUrls: ['./search-location.component.scss']
+  styleUrls: ['./search-location.component.scss'],
 })
 export class SearchLocationComponent {
   typeSearch: string = 'normal';
@@ -14,9 +14,10 @@ export class SearchLocationComponent {
     type: '',
     dimension: '',
   };
-  @Output() response: EventEmitter<pageLocationType> = new EventEmitter<pageLocationType>();
+  @Output() response: EventEmitter<pageLocationType> =
+    new EventEmitter<pageLocationType>();
 
-  constructor(private service: ApiService) { }
+  constructor(private service: ApiService) {}
 
   onClickTypeSearch() {
     this.search.name = '';
